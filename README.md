@@ -2,7 +2,7 @@
 
 Provides a macroexpand-all function that calls the implementation specific equivalent.
 
-Supports: `abcl`, `allegro`, `ccl`, `clisp`, `cmucl`, `corman`, `lispworks`, `mkcl`, `sbcl` & `scl`
+Supports: `abcl`, `allegro`, `ccl`, `clisp`, `cmucl`, `corman`, `lispworks`, `mkcl`, `sbcl`, `ecl` & `scl`
 
 On unsupported implementations it returns the form unchanged and emits a warning.
 
