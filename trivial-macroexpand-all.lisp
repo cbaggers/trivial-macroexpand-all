@@ -30,6 +30,10 @@
   (declare (ignore env))
   (ccl:macroexpand-all form))
 
+#+ecl
+(defun macroexpand-all (form &optional env)
+  (walker:macroexpand-all form env))
+
 #+lispworks
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
@@ -49,7 +53,7 @@
   (declare (ignore env))
   (macroexpand form))
 
-#-(or abcl allegro ccl clisp cmucl corman lispworks mkcl sbcl scl)
+#-(or abcl allegro ccl clisp cmucl corman ecl lispworks mkcl sbcl scl)
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
   (warn "trivial-macroexpand-all is not currently available for this implementation")
