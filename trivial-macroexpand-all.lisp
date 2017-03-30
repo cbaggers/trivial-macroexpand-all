@@ -2,59 +2,58 @@
 
 #+abcl
 (defun macroexpand-all (form &optional env)
-  (ext:macroexpand-all form env))
+  (values (ext:macroexpand-all form env) t))
 
 #+allegro
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
   #+(and allegro-version>= (version>= 8 0))
-  (excl::walk-form form)
+  (values (excl::walk-form form) t)
   #-(and allegro-version>= (version>= 8 0))
-  (excl::walk form))
+  (values (excl::walk form) t))
 
 #+ccl
 (defun macroexpand-all (form &optional env)
-  (ccl:macroexpand-all form env))
+  (values (ccl:macroexpand-all form env) t))
 
 #+clisp
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (ext:expand-form form))
+  (values (ext:expand-form form) t))
 
 #+cmucl
 (defun macroexpand-all (form &optional env)
-  (walker:macroexpand-all form env))
+  (values (walker:macroexpand-all form env) t))
 
 #+corman
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (ccl:macroexpand-all form))
+  (values (ccl:macroexpand-all form) t))
 
 #+ecl
 (defun macroexpand-all (form &optional env)
-  (walker:macroexpand-all form env))
+  (values (walker:macroexpand-all form env) t))
 
 #+lispworks
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (walker:walk-form form))
+  (values (walker:walk-form form) t))
 
 #+mkcl
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (walker:macroexpand-all form))
+  (values (walker:macroexpand-all form) t))
 
 #+sbcl
 (defun macroexpand-all (form &optional env)
-  (sb-cltl2:macroexpand-all form env))
+  (values (sb-cltl2:macroexpand-all form env) t))
 
 #+scl
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (macroexpand form))
+  (values (macroexpand form) t))
 
 #-(or abcl allegro ccl clisp cmucl corman ecl lispworks mkcl sbcl scl)
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
-  (warn "trivial-macroexpand-all is not currently available for this implementation")
-  form)
+  (values form nil))

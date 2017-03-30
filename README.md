@@ -4,7 +4,13 @@ Provides a macroexpand-all function that calls the implementation specific equiv
 
 Supports: `abcl`, `allegro`, `ccl`, `clisp`, `cmucl`, `corman`, `lispworks`, `mkcl`, `sbcl`, `ecl` & `scl`
 
-On unsupported implementations it returns the form unchanged and emits a warning.
+If you the function from a supported implementation then the two return values are:
+- the expanded form
+- t
+
+If you the function from an usupported implementation then the two return values are:
+- the original form
+- nil
 
 ## Trivial..again?
 
