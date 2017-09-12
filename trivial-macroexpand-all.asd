@@ -5,5 +5,7 @@
   :author "Chris Bagley <chris.bagley@gmail.com>"
   :license "Unlicense"
   :serial t
+  #+sbcl :depends-on
+  #+sbcl (:sb-cltl2)
   :components ((:file "package")
                (:file "trivial-macroexpand-all")))
