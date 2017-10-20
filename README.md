@@ -4,12 +4,14 @@ Provides a macroexpand-all function that calls the implementation specific equiv
 
 Supports: `abcl`, `allegro`, `ccl`, `clisp`, `cmucl`, `corman`, `lispworks`, `mkcl`, `sbcl`, `ecl` & `scl`
 
-If you the function from a supported implementation then the two return values are:
+If you the function from a supported implementation then the three return values are:
 - the expanded form
 - t
+- t, if the implementation specific equivalent accepts an environment
 
-If you the function from an usupported implementation then the two return values are:
+If you the function from an usupported implementation then the three return values are:
 - the original form
+- nil
 - nil
 
 ## Example
