@@ -21,7 +21,7 @@
   (declare (ignore env))
   (values (ext:expand-form form) t nil))
 
-#+cmucl
+#+(or cmucl ecl)
 (defun macroexpand-all (form &optional env)
   (values (walker:macroexpand-all form env) t t))
 
@@ -29,10 +29,6 @@
 (defun macroexpand-all (form &optional env)
   (declare (ignore env))
   (values (ccl:macroexpand-all form) t nil))
-
-#+ecl
-(defun macroexpand-all (form &optional env)
-  (values (walker:macroexpand-all form env) t t))
 
 #+lispworks
 (defun macroexpand-all (form &optional env)
